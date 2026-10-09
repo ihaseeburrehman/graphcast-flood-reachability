@@ -2,6 +2,9 @@
 
 Code and selected derived data accompanying the manuscript by Rehman & Teferle.
 
+Archived release v1.0.1: [10.5281/zenodo.23270443](https://doi.org/10.5281/zenodo.23270443).
+All versions: [10.5281/zenodo.23270441](https://doi.org/10.5281/zenodo.23270441).
+
 GraphCast (0.25°) is made differentiable in JAX and its initial state is optimised in a 4D-Var framework
 (background error = ERA5 ensemble spread, 250-km Gaussian B^1/2) to fit gauge-adjusted radar rainfall for the
 July 2021 floods (Alzette, Ahr, Vesdre). The rainfall is routed through LISFLOOD-FP, the change is tested for

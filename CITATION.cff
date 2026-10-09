@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "Please cite the archived release when using this code or its selected derived data."
+title: "Sensitive initial-state directions let an AI weather model reach Europe's 2021 flood rainfall: code and selected derived data"
+type: software
+authors:
+  - family-names: Rehman
+    given-names: Haseeb ur
+    affiliation: University of Luxembourg
+  - family-names: Teferle
+    given-names: Félicia Norma Rebecca
+    affiliation: University of Luxembourg
+version: 1.0.1
+date-released: 2026-10-09
+repository-code: "https://github.com/ihaseeburrehman/graphcast-flood-reachability"
+license: MIT

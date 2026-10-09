@@ -1,0 +1,2 @@
+2021-07-13T12 v5quick alzette_2021 --obs-err 8 0 --fp32 --iters 4
+2021-07-13T12 v5gradtest_mixed alzette_2021 --mode gradtest --obs-err 8 0 --fp32

@@ -1,0 +1,4 @@
+2021-07-13T12 v5restartg0_2 alzette_2021 --obs-err 8 0 --fp32 --init-seed 2 --init-zrms 0.5 --gtol 0
+2021-07-11T12 v5restartg0_2 alzette_2021 --obs-err 8 0 --fp32 --init-seed 2 --init-zrms 0.5 --gtol 0
+2021-07-08T12 v5restartg0_2 alzette_2021 --obs-err 8 0 --fp32 --init-seed 2 --init-zrms 0.5 --gtol 0
+2021-07-07T12 v5restartg0_2 alzette_2021 --obs-err 8 0 --fp32 --init-seed 2 --init-zrms 0.5 --gtol 0

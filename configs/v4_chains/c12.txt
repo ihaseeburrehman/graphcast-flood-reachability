@@ -1,0 +1,5 @@
+2021-07-13T12 v4nullens_m09 alzette_2021 --obs-err 8 0 --truth-file /ec/res4/scratch/lux0804/gc_flood_predictability/ens_truths/ens_truth_m09.nc
+2021-07-13T12 v4nullens_m26 alzette_2021 --obs-err 8 0 --truth-file /ec/res4/scratch/lux0804/gc_flood_predictability/ens_truths/ens_truth_m26.nc
+2021-07-13T12 v4nullens_m28 alzette_2021 --obs-err 8 0 --truth-file /ec/res4/scratch/lux0804/gc_flood_predictability/ens_truths/ens_truth_m28.nc
+2021-07-13T12 v4nullens_m36 alzette_2021 --obs-err 8 0 --truth-file /ec/res4/scratch/lux0804/gc_flood_predictability/ens_truths/ens_truth_m36.nc
+2021-07-13T12 v4nullens_m40 alzette_2021 --obs-err 8 0 --truth-file /ec/res4/scratch/lux0804/gc_flood_predictability/ens_truths/ens_truth_m40.nc

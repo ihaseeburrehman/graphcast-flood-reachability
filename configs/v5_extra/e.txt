@@ -1,0 +1,4 @@
+2021-07-13T18 v5era5fc alzette_2021 --mode forward --obs-err 8 0 --fp32 --bound clim
+2021-07-14T00 v5era5fc alzette_2021 --mode forward --obs-err 8 0 --fp32 --bound clim
+2021-07-14T06 v5era5fc alzette_2021 --mode forward --obs-err 8 0 --fp32 --bound clim
+2021-07-14T18 v5era5fc alzette_2021 --mode forward --obs-err 8 0 --fp32 --bound clim

@@ -1,0 +1,3 @@
+2021-07-09T12 v3ahr ahr_2021 --obs-err 8 0
+2021-07-13T12 v3vesdre vesdre_2021 --obs-err 8 0
+2021-07-12T12 v3vesdre vesdre_2021 --obs-err 8 0

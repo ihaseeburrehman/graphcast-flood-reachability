@@ -1,0 +1,2 @@
+2021-07-09T12 v5jvp alzette_2021 --mode gradtest --obs-err 8 0 --fp32
+2021-07-07T12 v5jvp alzette_2021 --mode gradtest --obs-err 8 0 --fp32

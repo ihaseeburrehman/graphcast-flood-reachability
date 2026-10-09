@@ -1,0 +1,20 @@
+run,real,chi2_start,chi2_final,frac_reduction,grad_ratio,stop
+v5lead_20210708T12,True,4.9474,1.3237,0.7324,1.7215,line search
+v5null_m01_20210708T12,False,7.5520,2.7323,0.6382,1.5785,line search
+v5null_m02_20210708T12,False,5.0323,1.3856,0.7247,0.7678,line search
+v5null_m03_20210708T12,False,5.1801,2.1863,0.5779,1.4104,line search
+v5null_m05_20210708T12,False,9.6606,4.2700,0.5580,0.5225,line search
+v5null_m06_20210708T12,False,8.5736,3.2796,0.6175,1.2285,line search
+v5null_m09_20210708T12,False,5.1998,1.8809,0.6383,1.8088,line search
+v5null_m11_20210708T12,False,6.0261,1.9968,0.6686,0.9394,line search
+v5null_m12_20210708T12,False,5.0564,1.5455,0.6944,0.7457,line search
+v5null_m16_20210708T12,False,5.5914,1.6985,0.6962,2.0339,line search
+v5null_m18_20210708T12,False,5.6400,1.7836,0.6838,1.1832,line search
+v5null_m19_20210708T12,False,5.8482,3.0660,0.4757,0.6563,line search
+v5null_m20_20210708T12,False,5.2668,2.1807,0.5860,3.4687,line search
+v5null_m21_20210708T12,False,7.2625,3.3421,0.5398,0.4463,line search
+v5null_m26_20210708T12,False,6.9366,3.0361,0.5623,3.3053,line search
+v5null_m28_20210708T12,False,5.1821,1.4502,0.7202,0.7477,line search
+v5null_m34_20210708T12,False,8.5203,3.6926,0.5666,2.0881,line search
+v5null_m40_20210708T12,False,7.0870,3.8826,0.4522,1.0096,line search
+v5null_m47_20210708T12,False,5.3915,1.4783,0.7258,0.5148,line search

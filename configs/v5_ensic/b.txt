@@ -1,0 +1,8 @@
+2024-09-12T12 v5boris_r6 boris_2024 --obs-err 6 0 --fp32
+2024-09-11T12 v5boris_r6 boris_2024 --obs-err 6 0 --fp32
+2024-09-10T12 v5boris_r6 boris_2024 --obs-err 6 0 --fp32
+2024-09-12T12 ensicv5_boris boris_2024 --mode ensic --ref-run /ec/res4/scratch/lux0804/gc_flood_predictability/runs/v5boris_r6_20240912T12 --obs-err 6 0 --fp32
+2024-09-11T12 ensicv5_boris boris_2024 --mode ensic --ref-run /ec/res4/scratch/lux0804/gc_flood_predictability/runs/v5boris_r6_20240911T12 --obs-err 6 0 --fp32
+2024-09-10T12 ensicv5_boris boris_2024 --mode ensic --ref-run /ec/res4/scratch/lux0804/gc_flood_predictability/runs/v5boris_r6_20240910T12 --obs-err 6 0 --fp32
+2024-09-08T12 ensicv5_boris boris_2024 --mode ensic --ref-run /ec/res4/scratch/lux0804/gc_flood_predictability/runs/v5boris_20240908T12 --obs-err 8 0 --fp32
+2024-09-06T12 ensicv5_boris boris_2024 --mode ensic --ref-run /ec/res4/scratch/lux0804/gc_flood_predictability/runs/v5boris_20240906T12 --obs-err 8 0 --fp32

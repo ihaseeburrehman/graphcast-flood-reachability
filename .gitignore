@@ -1,0 +1,4 @@
+results/runs/*/increment.nc
+__pycache__/
+*.pyc
+.DS_Store

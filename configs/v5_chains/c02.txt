@@ -1,0 +1,2 @@
+2021-07-08T12 v5lead alzette_2021 --obs-err 8 0 --fp32
+2021-07-12T12 v5lead alzette_2021 --obs-err 8 0 --fp32

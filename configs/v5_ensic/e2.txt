@@ -1,0 +1,7 @@
+2021-07-12T12 ensicv5_alz alzette_2021 --mode ensic --ref-run /ec/res4/scratch/lux0804/gc_flood_predictability/runs/v5lead_20210712T12 --obs-err 8 0 --fp32
+2021-07-09T12 ensicv5_alz alzette_2021 --mode ensic --ref-run /ec/res4/scratch/lux0804/gc_flood_predictability/runs/v5lead_20210709T12 --obs-err 8 0 --fp32
+2021-07-13T12 ensicv5_ahr ahr_2021 --mode ensic --ref-run /ec/res4/scratch/lux0804/gc_flood_predictability/runs/v5ahr_20210713T12 --obs-err 8 0 --fp32
+2021-07-12T12 ensicv5_vesdre vesdre_2021 --mode ensic --ref-run /ec/res4/scratch/lux0804/gc_flood_predictability/runs/v5vesdre_20210712T12 --obs-err 8 0 --fp32
+2021-07-09T12 ensicv5_ahr ahr_2021 --mode ensic --ref-run /ec/res4/scratch/lux0804/gc_flood_predictability/runs/v5ahr_20210709T12 --obs-err 8 0 --fp32
+2021-07-07T12 ensicv5_vesdre vesdre_2021 --mode ensic --ref-run /ec/res4/scratch/lux0804/gc_flood_predictability/runs/v5vesdre_20210707T12 --obs-err 8 0 --fp32
+2024-10-26T12 ensicv5_valencia valencia_2024 --mode ensic --ref-run /ec/res4/scratch/lux0804/gc_flood_predictability/runs/v5valencia_20241026T12 --obs-err 8 0 --fp32

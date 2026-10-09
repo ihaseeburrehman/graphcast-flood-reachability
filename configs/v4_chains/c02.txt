@@ -1,0 +1,2 @@
+2021-07-08T12 v4lead alzette_2021 --obs-err 8 0
+2021-07-12T12 v4lead alzette_2021 --obs-err 8 0

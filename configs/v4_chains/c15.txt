@@ -1,0 +1,2 @@
+2021-07-13T12 v4gradtest_sd alzette_2021 --mode gradtest --obs-err 8 0
+2021-07-08T12 v4gradtest_sd alzette_2021 --mode gradtest --obs-err 8 0

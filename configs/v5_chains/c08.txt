@@ -1,0 +1,5 @@
+2024-10-28T12 v5valencia valencia_2024 --obs-err 8 0 --fp32
+2024-10-27T12 v5valencia valencia_2024 --obs-err 8 0 --fp32
+2024-10-26T12 v5valencia valencia_2024 --obs-err 8 0 --fp32
+2024-10-24T12 v5valencia valencia_2024 --obs-err 8 0 --fp32
+2024-10-22T12 v5valencia valencia_2024 --obs-err 8 0 --fp32

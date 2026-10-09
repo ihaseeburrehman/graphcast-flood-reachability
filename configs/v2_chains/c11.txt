@@ -1,0 +1,5 @@
+2021-07-08T12 v2null_flipns alzette_2021 --truth-transform flipns
+2021-07-08T12 v2null_flipew alzette_2021 --truth-transform flipew
+2021-07-08T12 v2null_rot180 alzette_2021 --truth-transform rot180
+2021-07-08T12 v2null_rollns alzette_2021 --truth-transform rollns
+2021-07-08T12 v2null_rollew alzette_2021 --truth-transform rollew

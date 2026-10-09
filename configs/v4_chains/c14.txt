@@ -1,0 +1,7 @@
+2021-07-12T12 v4r2 alzette_2021 --obs-err 2 0
+2021-07-12T12 v4r4 alzette_2021 --obs-err 4 0
+2021-07-13T18 v4era5fc alzette_2021 --mode forward
+2021-07-14T00 v4era5fc alzette_2021 --mode forward
+2021-07-14T06 v4era5fc alzette_2021 --mode forward
+2021-07-14T12 v4era5fc alzette_2021 --mode forward
+2021-07-14T18 v4era5fc alzette_2021 --mode forward

@@ -1,0 +1,3 @@
+2021-07-13T12 v4det alzette_2021 --mode forward
+2021-07-13T12 v4gradtest alzette_2021 --mode gradtest --obs-err 8 0
+2021-07-08T12 v4gradtest alzette_2021 --mode gradtest --obs-err 8 0

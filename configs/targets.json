@@ -1,0 +1,205 @@
+{
+  "_note": "Target basins. cells = 0.25 deg GraphCast grid points covering the basin; box = cells in the basin loss term; region = cells in the regional (whole-storm) loss term, intersected with valid truth cells; valid = end times of the 6-h target steps (UTC); era5 = input files on the HPC.",
+  "alzette_2021": {
+    "truth": "data/radar_target/radar_6h_025deg.nc",
+    "truth_name": "RMI radclim",
+    "cells": {
+      "lat": [
+        49.5,
+        49.75
+      ],
+      "lon": [
+        6.0,
+        6.25
+      ]
+    },
+    "box": [
+      49.25,
+      50.0,
+      5.75,
+      6.5
+    ],
+    "region": [
+      48.5,
+      51.0,
+      4.5,
+      7.5
+    ],
+    "valid": [
+      "2021-07-14T12",
+      "2021-07-14T18",
+      "2021-07-15T00"
+    ],
+    "pert_box": [
+      25.0,
+      72.0,
+      -45.0,
+      35.0
+    ],
+    "era5": "2021"
+  },
+  "ahr_2021": {
+    "truth": "data/radar_target/radklim_6h_025deg_wide.nc",
+    "truth_name": "DWD RADKLIM",
+    "cells": {
+      "lat": [
+        50.25,
+        50.5
+      ],
+      "lon": [
+        6.75,
+        7.0,
+        7.25
+      ]
+    },
+    "box": [
+      50.0,
+      50.75,
+      6.5,
+      7.5
+    ],
+    "region": [
+      49.25,
+      51.5,
+      5.75,
+      8.5
+    ],
+    "valid": [
+      "2021-07-14T12",
+      "2021-07-14T18",
+      "2021-07-15T00"
+    ],
+    "pert_box": [
+      25.0,
+      72.0,
+      -45.0,
+      35.0
+    ],
+    "era5": "2021"
+  },
+  "vesdre_2021": {
+    "truth": "data/radar_target/radclim_6h_025deg_wide.nc",
+    "truth_name": "RMI radclim",
+    "cells": {
+      "lat": [
+        50.5,
+        50.75
+      ],
+      "lon": [
+        5.75,
+        6.0,
+        6.25
+      ]
+    },
+    "box": [
+      50.25,
+      51.0,
+      5.5,
+      6.5
+    ],
+    "region": [
+      49.25,
+      51.5,
+      4.5,
+      7.5
+    ],
+    "valid": [
+      "2021-07-14T00",
+      "2021-07-14T06",
+      "2021-07-14T12",
+      "2021-07-14T18",
+      "2021-07-15T00"
+    ],
+    "pert_box": [
+      25.0,
+      72.0,
+      -45.0,
+      35.0
+    ],
+    "era5": "2021"
+  },
+  "valencia_2024": {
+    "truth": "data/truth_2024/imerg_valencia_2024.nc",
+    "truth_name": "GPM IMERG Final V07B",
+    "cells": {
+      "lat": [
+        39.25,
+        39.5
+      ],
+      "lon": [
+        -0.75,
+        -0.5
+      ]
+    },
+    "box": [
+      39.0,
+      39.75,
+      -1.0,
+      -0.25
+    ],
+    "region": [
+      37.5,
+      41.5,
+      -2.5,
+      1.5
+    ],
+    "valid": [
+      "2024-10-29T12",
+      "2024-10-29T18",
+      "2024-10-30T00"
+    ],
+    "pert_box": [
+      20.0,
+      65.0,
+      -45.0,
+      30.0
+    ],
+    "era5": "valencia_2024",
+    "_note": "IMERG strongly underestimates the point extremes (gauges 400-770 mm/day vs ~95 mm/day over these 0.25 deg cells); treat as truth at GraphCast's resolvable scale"
+  },
+  "boris_2024": {
+    "truth": "data/truth_2024/imerg_boris_2024.nc",
+    "truth_name": "GPM IMERG Final V07B",
+    "cells": {
+      "lat": [
+        50.25,
+        50.5
+      ],
+      "lon": [
+        16.5,
+        16.75
+      ]
+    },
+    "box": [
+      50.0,
+      50.75,
+      16.25,
+      17.0
+    ],
+    "region": [
+      48.0,
+      52.0,
+      14.0,
+      19.5
+    ],
+    "valid": [
+      "2024-09-13T12",
+      "2024-09-13T18",
+      "2024-09-14T00",
+      "2024-09-14T06",
+      "2024-09-14T12",
+      "2024-09-14T18",
+      "2024-09-15T00",
+      "2024-09-15T06",
+      "2024-09-15T12"
+    ],
+    "pert_box": [
+      25.0,
+      72.0,
+      -40.0,
+      45.0
+    ],
+    "era5": "boris_2024",
+    "_note": "Klodzko / upper Nysa Klodzka; IMERG 154 mm vs E-OBS 166 mm over 12-16 Sep (agree); target = 13 Sep 06Z - 15 Sep 12Z (62% of event)"
+  }
+}

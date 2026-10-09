@@ -1,0 +1,4 @@
+2021-07-13T12 v5det_bf16 alzette_2021 --mode forward --obs-err 8 0
+2021-07-13T12 v5det_fp32 alzette_2021 --mode forward --obs-err 8 0 --fp32
+2021-07-08T12 v5det_fp32 alzette_2021 --mode forward --obs-err 8 0 --fp32
+2021-07-13T12 v5gradtest_fp32 alzette_2021 --mode gradtest --obs-err 8 0 --fp32

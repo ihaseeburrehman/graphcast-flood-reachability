@@ -1,0 +1,4 @@
+# referee checks: hydrostatic consistency + large-scale RMSE (mode balance), Alzette
+2021-07-13T12 v5balance alzette_2021 --mode balance --fp32 --obs-err 8 0 --ref-run /ec/res4/scratch/lux0804/gc_flood_predictability/runs/v5lead_20210713T12
+2021-07-12T12 v5balance alzette_2021 --mode balance --fp32 --obs-err 8 0 --ref-run /ec/res4/scratch/lux0804/gc_flood_predictability/runs/v5lead_20210712T12
+2021-07-11T12 v5balance alzette_2021 --mode balance --fp32 --obs-err 8 0 --ref-run /ec/res4/scratch/lux0804/gc_flood_predictability/runs/v5lead_20210711T12

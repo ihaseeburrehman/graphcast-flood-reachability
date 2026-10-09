@@ -1,0 +1,6 @@
+2021-07-13T12 v2seed1 alzette_2021 --init-seed 1
+2021-07-13T12 v2seed2 alzette_2021 --init-seed 2
+2021-07-11T12 v2seed1 alzette_2021 --init-seed 1
+2021-07-11T12 v2seed2 alzette_2021 --init-seed 2
+2021-07-12T12 v2r2 alzette_2021 --obs-err 2 0
+2021-07-12T12 v2r8 alzette_2021 --obs-err 8 0

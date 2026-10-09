@@ -1,0 +1,4 @@
+2021-07-07T12 v5twinfc_m18 alzette_2021 --mode forward --obs-err 8 0 --fp32 --bg-ens-member 18 --save-truth /ec/res4/scratch/lux0804/gc_flood_predictability/twin/twin_m18_20210707T12.nc
+2021-07-07T12 v5twin_m18 alzette_2021 --obs-err 8 0 --fp32 --truth-file /ec/res4/scratch/lux0804/gc_flood_predictability/twin/twin_m18_20210707T12.nc
+2021-07-08T12 v5twinfc_m33 alzette_2021 --mode forward --obs-err 8 0 --fp32 --bg-ens-member 33 --save-truth /ec/res4/scratch/lux0804/gc_flood_predictability/twin/twin_m33_20210708T12.nc
+2021-07-08T12 v5twin_m33 alzette_2021 --obs-err 8 0 --fp32 --truth-file /ec/res4/scratch/lux0804/gc_flood_predictability/twin/twin_m33_20210708T12.nc

@@ -1,0 +1,3 @@
+2021-07-13T12 v5robust alzette_2021 --mode robust --ref-run /ec/res4/scratch/lux0804/gc_flood_predictability/runs/v5lead_20210713T12 --obs-err 8 0 --fp32
+2021-07-12T12 v5robust alzette_2021 --mode robust --ref-run /ec/res4/scratch/lux0804/gc_flood_predictability/runs/v5lead_20210712T12 --obs-err 8 0 --fp32
+2021-07-11T12 v5robust alzette_2021 --mode robust --ref-run /ec/res4/scratch/lux0804/gc_flood_predictability/runs/v5lead_20210711T12 --obs-err 8 0 --fp32

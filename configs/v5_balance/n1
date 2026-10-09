@@ -1,0 +1,10 @@
+2021-07-11T12 v5balnull_m01 alzette_2021 --mode balance --fp32 --obs-err 8 0 --ref-run /ec/res4/scratch/lux0804/gc_flood_predictability/runs/v5null_m01_20210711T12
+2021-07-11T12 v5balnull_m03 alzette_2021 --mode balance --fp32 --obs-err 8 0 --ref-run /ec/res4/scratch/lux0804/gc_flood_predictability/runs/v5null_m03_20210711T12
+2021-07-11T12 v5balnull_m06 alzette_2021 --mode balance --fp32 --obs-err 8 0 --ref-run /ec/res4/scratch/lux0804/gc_flood_predictability/runs/v5null_m06_20210711T12
+2021-07-11T12 v5balnull_m11 alzette_2021 --mode balance --fp32 --obs-err 8 0 --ref-run /ec/res4/scratch/lux0804/gc_flood_predictability/runs/v5null_m11_20210711T12
+2021-07-11T12 v5balnull_m16 alzette_2021 --mode balance --fp32 --obs-err 8 0 --ref-run /ec/res4/scratch/lux0804/gc_flood_predictability/runs/v5null_m16_20210711T12
+2021-07-11T12 v5balnull_m19 alzette_2021 --mode balance --fp32 --obs-err 8 0 --ref-run /ec/res4/scratch/lux0804/gc_flood_predictability/runs/v5null_m19_20210711T12
+2021-07-11T12 v5balnull_m21 alzette_2021 --mode balance --fp32 --obs-err 8 0 --ref-run /ec/res4/scratch/lux0804/gc_flood_predictability/runs/v5null_m21_20210711T12
+2021-07-11T12 v5balnull_m28 alzette_2021 --mode balance --fp32 --obs-err 8 0 --ref-run /ec/res4/scratch/lux0804/gc_flood_predictability/runs/v5null_m28_20210711T12
+2021-07-11T12 v5balnull_m39 alzette_2021 --mode balance --fp32 --obs-err 8 0 --ref-run /ec/res4/scratch/lux0804/gc_flood_predictability/runs/v5null_m39_20210711T12
+2021-07-11T12 v5balnull_m47 alzette_2021 --mode balance --fp32 --obs-err 8 0 --ref-run /ec/res4/scratch/lux0804/gc_flood_predictability/runs/v5null_m47_20210711T12

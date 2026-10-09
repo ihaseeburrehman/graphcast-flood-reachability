@@ -42,7 +42,9 @@ def panel(ax, letter, title="", x=-0.02):
 
 
 def save(fig, name):
-    fig.savefig(FIG / f"{name}.pdf", bbox_inches="tight"); fig.savefig(FIG / f"{name}.png", bbox_inches="tight")
+    fig.savefig(FIG / f"{name}.pdf", bbox_inches="tight")
+    (ROOT / "results/figure_previews").mkdir(parents=True, exist_ok=True)
+    fig.savefig(ROOT / f"results/figure_previews/{name}.png", bbox_inches="tight")
     print("wrote", name)
 
 
@@ -173,7 +175,7 @@ def fig2():
 
 
 def fig3():
-    """a noise, b fields changed, c other storms, d GraphCast from the 50 ECMWF initial perturbations."""
+    """a noise, b fields changed, c alternative rainfall patterns, d GraphCast from the 50 ECMWF initial perturbations."""
     fig, axs = plt.subplots(1, 4, figsize=(W2, 52 * MM), gridspec_kw=dict(width_ratios=[1, 1.7, 1, 1], wspace=0.5))
     LEADS = [("20210713T12", "0.75"), ("20210712T12", "1.75"), ("20210711T12", "2.75")]
     ax = axs[0]
@@ -202,12 +204,12 @@ def fig3():
     panel(ax, "b", "Fields changed")
     ax = axs[2]
     n = pd.read_csv(R / "null_20210711T12.csv")
-    ax.plot(n[~n.real].chi2_start, n[~n.real].chi2_final, "o", color=C["ctl"], ms=3, mew=0, label="19 other storms")
+    ax.plot(n[~n.real].chi2_start, n[~n.real].chi2_final, "o", color=C["ctl"], ms=3, mew=0, label="19 rainfall patterns")
     ax.plot(n[n.real].chi2_start, n[n.real].chi2_final, "*", color=C["opt"], ms=7, mew=0, label="Observed storm")
     b = np.polyfit(n[~n.real].chi2_start, n[~n.real].chi2_final, 1); xx = np.linspace(n.chi2_start.min(), n.chi2_start.max(), 10)
     ax.plot(xx, np.polyval(b, xx), color=C["obs"], ls=":", lw=0.8)
     ax.set_xlabel("Normalised misfit before"); ax.set_ylabel("Normalised misfit after"); ax.set_ylim(0.9, 4.8); ax.legend(loc="upper left", handletextpad=0.3)
-    panel(ax, "c", "Other storms, 2.75 days")
+    panel(ax, "c", "Patterns, 2.75 days")
     ax = axs[3]
     o = gc_runs("alzette_2021", "v5lead"); o = o.set_index(o.lead.round(2))
     for x, (d, L) in enumerate(LEADS):

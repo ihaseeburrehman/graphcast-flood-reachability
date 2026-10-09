@@ -2,7 +2,7 @@
 
 Code and selected derived data accompanying the manuscript by Rehman & Teferle.
 
-Archived release v1.0.1: [10.5281/zenodo.23270443](https://doi.org/10.5281/zenodo.23270443).
+Archived releases: [10.5281/zenodo.23270441](https://doi.org/10.5281/zenodo.23270441).
 All versions: [10.5281/zenodo.23270441](https://doi.org/10.5281/zenodo.23270441).
 
 GraphCast (0.25°) is made differentiable in JAX and its initial state is optimised in a 4D-Var framework

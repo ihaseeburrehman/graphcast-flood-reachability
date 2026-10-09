@@ -2,7 +2,7 @@
 
 Fig. S1: change at t0 in 850-hPa humidity and temperature and 500-hPa geopotential height, Alzette runs at
 0.75, 1.75 and 2.75 days. Table S1: per basin and lead, GraphCast and optimised rain, fit, convergence, size,
-6-h ceiling. Table S2: GraphCast-ECMWF ensemble agreement, 2021 storm. Table S3: per-gauge flood metrics.
+6-h reset. Table S2: GraphCast-ECMWF ensemble agreement, 2021 storm. Table S3: per-gauge flood metrics.
 Outputs: manuscript/figures/figS1_increment.pdf, manuscript/si_tables.tex
 """
 import importlib.util, json
@@ -53,9 +53,9 @@ for tg, (name, pre) in F.BASINS.items():
 t1 = ("\\begin{table}[h]\\centering\\small\n\\caption{\\textbf{Optimisation results, 0.75--2.75 days.} Basin rain (\\% of radar) "
       "from ERA5 and from the optimised state; pattern correlation over the storm region; normalised misfit $2J_o/N$; final over initial "
       "gradient norm; $\\lVert z\\rVert$; GraphCast 6-h forecasts from ERA5 summed over the window (\\% of radar), the "
-      "``ceiling''. At 1.75 days the Alzette value is 84, 81 and 73\\% for $r$ = 2, 4 and 8~mm.}\n"
+      "six-hour reset reference. At 1.75 days the Alzette value is 84, 81 and 73\\% for $r$ = 2, 4 and 8~mm.}\n"
       "\\begin{tabular}{lrrrrrrrr}\\toprule\nBasin & Lead (d) & GraphCast & Optimised & $r$ & $2J_o/N$ & $|g|/|g_0|$ & "
-      "$\\lVert z\\rVert$ & 6-h ceiling \\\\\\midrule\n" + "\n".join(rows) + "\n\\bottomrule\\end{tabular}\\label{tab:s1}\\end{table}\n")
+      "$\\lVert z\\rVert$ & 6-h reset \\\\\\midrule\n" + "\n".join(rows) + "\n\\bottomrule\\end{tabular}\\label{tab:s1}\\end{table}\n")
 
 # ── Table S2 ──
 e = pd.read_csv(ROOT / "results/figures/ensicv5_event_stats.csv")
@@ -96,7 +96,7 @@ for d, L in [("20210713T12", "0.75"), ("20210712T12", "1.75"), ("20210711T12", "
 t4 = ("\\begin{table}[h]\\centering\\small\n\\caption{\\textbf{Hydrostatic balance and large-scale error} (Alzette optimisations). "
       "Balanced $\\Delta\\phi$: geopotential change recomputed from the temperature, humidity and sea-level-pressure changes; the "
       "optimised geopotential change is 5--8\\% of the balanced one (norm ratio 0.05, 0.08, 0.08). RMSE against ERA5 at the target times over 40--60$^\\circ$N, "
-      "10$^\\circ$W--20$^\\circ$E (not used in the optimisation). At 2.75 days the changes fitted to the 19 other storms give Z500 "
+      "10$^\\circ$W--20$^\\circ$E (not used in the optimisation). At 2.75 days the changes fitted to the 19 alternative rainfall patterns give Z500 "
       "13.2--18.6~m (median 14.2; 18 below the control), T850 0.96--1.14~K and MSLP 0.73--1.07~hPa.}\n\\begin{tabular}{llrrrrr}\\toprule\nLead (d) & Initial state & "
       "Rain (\\%) & $r$ & Z500 (m) & T850 (K) & MSLP (hPa) \\\\\\midrule\n" + "\n".join(rows)
       + "\n\\bottomrule\\end{tabular}\\label{tab:s4}\\end{table}\n")
@@ -113,8 +113,13 @@ for c, lab in names.items():
 t5 = ("\\begin{table}[h]\\centering\\small\n\\caption{\\textbf{WRF process diagnosis}, 0.75 days ahead, averaged over 49--51.5$^\\circ$N, "
       "4.5--8$^\\circ$E: 6-h rain ending at the time shown, column water vapour (TCWV), moisture-flux convergence integrated from the "
       "surface to 500~hPa (VIMFC, mm per 6~h), 850-hPa wind speed, minimum sea-level pressure over 45--55$^\\circ$N, 0--15$^\\circ$E and "
-      "the position of the 500-hPa cut-off low centre.}\n\\begin{tabular}{llrrrrrl}\\toprule\nRun & Time & Rain (mm) & TCWV (mm) & VIMFC & "
+      "the position of the 500-hPa cut-off low centre.}\n\\setlength{\\tabcolsep}{4pt}\\footnotesize\n\\begin{tabular}{llrrrrrl}\\toprule\nRun & Time & Rain (mm) & TCWV (mm) & VIMFC & "
       "Wind 850 (m s$^{-1}$) & MSLP min (hPa) & 500-hPa low \\\\\\midrule\n" + "\n".join(rows)
       + "\n\\bottomrule\\end{tabular}\\label{tab:s5}\\end{table}\n")
+t3 = t3.replace('\\endhead', '\\endfirsthead\nForcing & Lead (d) & Gauge & NSE & KGE & Peak & Error (\\%) \\\\\\midrule\\endhead')
+t5 = t5.replace('Rain (mm)', '\\shortstack{Rain\\\\(mm)}')
+t5 = t5.replace('TCWV (mm)', '\\shortstack{TCWV\\\\(mm)}')
+t5 = t5.replace('Wind 850 (m s$^{-1}$)', '\\shortstack{Wind 850\\\\(m s$^{-1}$)}')
+t5 = t5.replace('MSLP min (hPa)', '\\shortstack{MSLP min\\\\(hPa)}')
 (ROOT / "manuscript/si_tables.tex").write_text(t1 + "\n" + t2 + "\n" + t3 + "\n" + t4 + "\n" + t5)
 print("wrote si_tables.tex")

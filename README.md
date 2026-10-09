@@ -1,4 +1,4 @@
-# Sensitive initial-state directions let an AI weather model reach Europe's 2021 flood rainfall
+# Optimising an AI weather model's initial state recovers much of Europe's 2021 flood rainfall
 
 Code and selected derived data accompanying the manuscript by Rehman & Teferle.
 

@@ -1,5 +1,5 @@
 {
-  "title": "Sensitive initial-state directions let an AI weather model reach Europe's 2021 flood rainfall: code and selected derived data",
+  "title": "Optimising an AI weather model's initial state recovers much of Europe's 2021 flood rainfall: code and selected derived data",
   "upload_type": "software",
   "description": "Code and selected derived data for GraphCast initial-state optimisation against radar rainfall for the July 2021 European floods, robustness and specificity tests, WRF transfer experiments, and Alzette flood modelling. Includes the files tracked in this GitHub release. Large optimised initial-state increments, external model inputs and weights, and observed discharge are not included. Code is MIT licensed; derived data and figures are CC BY 4.0 as specified in LICENSE-DATA.",
   "creators": [

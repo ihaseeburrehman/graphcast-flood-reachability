@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "Please cite the archived release when using this code or its selected derived data."
-title: "Sensitive initial-state directions let an AI weather model reach Europe's 2021 flood rainfall: code and selected derived data"
+title: "Optimising an AI weather model's initial state recovers much of Europe's 2021 flood rainfall: code and selected derived data"
 type: software
 authors:
   - family-names: Rehman

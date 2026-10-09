@@ -113,8 +113,8 @@ def main():
     # <stamp> applies it over <stamp> -> <stamp>+6 h, one interval too late. The
     # accumulation must therefore be stamped at the START of its own interval.
     # The earlier version of this script zero-padded at t=0 and stamped each
-    # accumulation at its valid time; the runs analysed in the manuscript were built
-    # that way and are one interval late (see the manuscript's limitations section).
+    # accumulation at its valid time; the runs of the earlier multi-model study were built
+    # that way and are one interval late. All runs of the GraphCast initial-state paper (Oct 2026) use the corrected convention.
     # Verified by closing dV/dt + Qout against the applied rainfall over the basin
     # mask: RMSE 8.69 mm per 6 h as previously written, 0.17 mm with this correction.
     rain = np.concatenate([np.stack(layers, axis=0),

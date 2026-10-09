@@ -1,0 +1,4 @@
+# GraphCast optimisation against ERA5 6-h rain instead of radar (reviewer request)
+2021-07-13T12 v5era5_alz alzette_2021 --obs-err 8 0 --fp32 --truth-file /ec/res4/hpcperm/lux0804/gc_flood_predictability/code/data/radar_target/era5_6h_025deg_truth.nc
+2021-07-12T12 v5era5_alz alzette_2021 --obs-err 8 0 --fp32 --truth-file /ec/res4/hpcperm/lux0804/gc_flood_predictability/code/data/radar_target/era5_6h_025deg_truth.nc
+2021-07-11T12 v5era5_alz alzette_2021 --obs-err 8 0 --fp32 --truth-file /ec/res4/hpcperm/lux0804/gc_flood_predictability/code/data/radar_target/era5_6h_025deg_truth.nc

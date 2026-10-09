@@ -42,4 +42,4 @@ mpiexec -n $SLURM_NTASKS ./wrf.exe; tail -2 rsl.error.0000
 grep -q "SUCCESS COMPLETE WRF" rsl.error.0000 && echo "== WRF OK $(date +%T)"
 # 4. keep rain + coordinates only
 $PY $CODE/scripts/wrf/wrf_rain.py $C > rain_summary.txt && cat rain_summary.txt
-case $NAME in *ctl*) ;; *) rm -f wrfout_d01_* ;; esac   # controls keep wrfout (diagnose the storm track); t0 met_em + wrfinput kept
+[ -n "${KEEP_WRFOUT:-}" ] || case $NAME in *ctl*) ;; *) rm -f wrfout_d01_* ;; esac   # controls keep wrfout (diagnose the storm track); t0 met_em + wrfinput kept

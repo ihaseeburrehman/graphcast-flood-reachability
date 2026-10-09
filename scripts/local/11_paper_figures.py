@@ -164,9 +164,9 @@ def fig2():
             ax.plot(mm.index, mm.values, "o-", color=c, ms=3.2, lw=1.1, label=l + " (mean of 4 gauges)")
         ax.axhline(rr[col].mean(), color=C["obs"], ls=":", lw=1.0, label="Radar rain (mean of 4 gauges)")
         ax.set_xlim(3.0, 0.5); ax.set_xticks([2.75, 1.75, 0.75]); ax.set_xlabel("Lead time (days)"); ax.set_ylabel(lab)
-        panel(ax, "ef"[j])
+        panel(ax, "ef"[j], ["Flood skill", "Flood peak"][j])
         if col == "nse":
-            ax.set_ylim(-0.6, 1); ax.legend(loc="lower left")
+            ax.set_ylim(-0.3, 1); ax.legend(loc="lower right")
         else:
             ax.axhline(0, color=C["obs"], lw=0.5); ax.set_ylim(-90, 10)
     save(fig, "fig2_floods")
@@ -181,7 +181,7 @@ def fig3():
         s = json.load(open(RUNS / f"v5robust_{d}/robust_summary.json")); v = s["variants"]
         pn = [m["basin_pct"] for m in s["optimised_plus_noise"]]; na = [m["basin_pct"] for m in s["noise_alone"]]
         ax.plot([x - 0.15] * len(na), na, "o", color=C["ctl"], ms=2.2, alpha=0.6, mew=0,
-                label="GraphCast + noise" if x == 0 else None)
+                label="ERA5 + noise" if x == 0 else None)
         ax.plot([x + 0.15] * len(pn), pn, "o", color=C["opt"], ms=2.2, alpha=0.5, mew=0,
                 label="Optimised + noise" if x == 0 else None)
         ax.plot([x - 0.15, x + 0.15], [v["control"]["basin_pct"], v["optimised"]["basin_pct"]], "_", color=C["obs"],
@@ -206,7 +206,7 @@ def fig3():
     ax.plot(n[n.real].chi2_start, n[n.real].chi2_final, "*", color=C["opt"], ms=7, mew=0, label="Observed storm")
     b = np.polyfit(n[~n.real].chi2_start, n[~n.real].chi2_final, 1); xx = np.linspace(n.chi2_start.min(), n.chi2_start.max(), 10)
     ax.plot(xx, np.polyval(b, xx), color=C["obs"], ls=":", lw=0.8)
-    ax.set_xlabel("Misfit before, χ²/N"); ax.set_ylabel("Misfit after, χ²/N"); ax.set_ylim(0.9, 4.8); ax.legend(loc="upper left", handletextpad=0.3)
+    ax.set_xlabel("Normalised misfit before"); ax.set_ylabel("Normalised misfit after"); ax.set_ylim(0.9, 4.8); ax.legend(loc="upper left", handletextpad=0.3)
     panel(ax, "c", "Other storms, 2.75 days")
     ax = axs[3]
     o = gc_runs("alzette_2021", "v5lead"); o = o.set_index(o.lead.round(2))

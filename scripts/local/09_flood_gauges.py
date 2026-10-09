@@ -2,7 +2,7 @@
 
 For each forcing (radar at 0.25 deg; GraphCast control and v3-optimised per lead) and each of the
 four gauges of the multi-model paper: NSE, modified KGE, peak discharge error (PDE, %) and peak
-timing error (PTE, h) against the AGE observations. 95 % intervals for NSE and KGE from a
+timing error (PTE, h) against the AGE observations. 95 % BCa intervals for NSE and KGE from a
 moving-block bootstrap of the 6-h series (block 4 steps = 24 h, 5000 replicates); PDE and PTE are
 single-peak quantities and are reported without intervals.
 Outputs: results/figures/metrics_flood_gauges_<ver>.csv
@@ -33,13 +33,28 @@ def kge(s, o):
     return 1 - np.sqrt((r - 1) ** 2 + (b - 1) ** 2 + (g - 1) ** 2)
 
 
-def block_ci(f, s, o, block=4, n=5000):
-    T = len(o); nb = int(np.ceil(T / block)); vals = []
+def block_ci(f, s, o, block=4, n=5000, alpha=0.05):
+    """BCa interval from a moving-block bootstrap (block = 4 six-hourly steps = 24 h). Bias correction z0 from the
+    bootstrap distribution; acceleration from a delete-one-block jackknife (non-overlapping blocks)."""
+    from scipy.stats import norm
+    T = len(o); nb = int(np.ceil(T / block)); theta = f(s, o); vals = []
     for _ in range(n):
         idx = np.concatenate([np.arange(st, st + block) for st in rng.integers(0, T - block + 1, nb)])[:T]
         with np.errstate(all="ignore"):
             vals.append(f(s[idx], o[idx]))
-    return np.nanpercentile(vals, [2.5, 97.5])
+    vals = np.array(vals); vals = vals[np.isfinite(vals)]
+    z0 = norm.ppf(np.clip(np.mean(vals < theta), 1e-6, 1 - 1e-6))
+    jack = []
+    for k in range(0, T, block):
+        keep = np.r_[0:k, min(k + block, T):T]
+        with np.errstate(all="ignore"):
+            jack.append(f(s[keep], o[keep]))
+    jack = np.array(jack); d = jack.mean() - jack
+    a = np.sum(d ** 3) / (6 * np.sum(d ** 2) ** 1.5) if np.sum(d ** 2) > 0 else 0.0
+    q = []
+    for z in norm.ppf([alpha / 2, 1 - alpha / 2]):
+        q.append(100 * norm.cdf(z0 + (z0 + z) / (1 - a * (z0 + z))))
+    return np.percentile(vals, q)
 
 
 def lead_days(t0):

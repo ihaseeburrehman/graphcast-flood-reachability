@@ -51,10 +51,10 @@ for tg, (name, pre) in F.BASINS.items():
         rows.append(f"{name} & {r.lead:.2f} & {r.ctl:.0f} & {r.opt:.0f} & {r.r_win:.2f} & {r.chi2:.2f} & {r.grad_ratio:.2f} & "
                     f"{np.sqrt(2 * r.Jb):.1f} & {ceil:.0f} \\\\")
 t1 = ("\\begin{table}[h]\\centering\\small\n\\caption{\\textbf{Optimisation results, 0.75--2.75 days.} Basin rain (\\% of radar) "
-      "from ERA5 and from the optimised state; pattern correlation over the storm region; $\\chi^2/N = 2J_o/N$; final over initial "
+      "from ERA5 and from the optimised state; pattern correlation over the storm region; normalised misfit $2J_o/N$; final over initial "
       "gradient norm; $\\lVert z\\rVert$; GraphCast 6-h forecasts from ERA5 summed over the window (\\% of radar), the "
       "``ceiling''. At 1.75 days the Alzette value is 84, 81 and 73\\% for $r$ = 2, 4 and 8~mm.}\n"
-      "\\begin{tabular}{lrrrrrrrr}\\toprule\nBasin & Lead (d) & GraphCast & Optimised & $r$ & $\\chi^2/N$ & $|g|/|g_0|$ & "
+      "\\begin{tabular}{lrrrrrrrr}\\toprule\nBasin & Lead (d) & GraphCast & Optimised & $r$ & $2J_o/N$ & $|g|/|g_0|$ & "
       "$\\lVert z\\rVert$ & 6-h ceiling \\\\\\midrule\n" + "\n".join(rows) + "\n\\bottomrule\\end{tabular}\\label{tab:s1}\\end{table}\n")
 
 # ── Table S2 ──
@@ -81,7 +81,7 @@ for r in m[~(m.lead > 3.0)].sort_values(["forcing", "lead", "gauge"]).itertuples
     L = "--" if np.isnan(r.lead) else f"{r.lead:.2f}"
     rows.append(f"{r.forcing} & {L} & {r.gauge} & {r.nse:.2f} [{r.nse_lo:.2f}, {r.nse_hi:.2f}] & {r.kge:.2f} & "
                 f"{r.peak_m3s:.0f} & {r.pde_pct:.0f} \\\\")
-t3 = ("{\\small\n\\begin{longtable}{llllrrr}\n\\caption{\\textbf{Flood metrics per gauge.} NSE with 95\\% block-bootstrap "
+t3 = ("{\\small\n\\begin{longtable}{llllrrr}\n\\caption{\\textbf{Flood metrics per gauge.} NSE with 95\\% bias-corrected and accelerated (BCa) moving-block bootstrap "
       "interval, modified KGE, simulated peak and peak error. Observed peaks: Steinsel 131.5, Pfaffenthal 134.5, Livange 98.8, "
       "Hesperange 122.6~m$^3$~s$^{-1}$.}\\label{tab:s3}\\\\\\toprule\nForcing & Lead (d) & Gauge & NSE & KGE & Peak & Error (\\%) "
       "\\\\\\midrule\\endhead\n" + "\n".join(rows) + "\n\\bottomrule\\end{longtable}}\n")
@@ -100,5 +100,21 @@ t4 = ("\\begin{table}[h]\\centering\\small\n\\caption{\\textbf{Hydrostatic balan
       "13.2--18.6~m (median 14.2; 18 below the control), T850 0.96--1.14~K and MSLP 0.73--1.07~hPa.}\n\\begin{tabular}{llrrrrr}\\toprule\nLead (d) & Initial state & "
       "Rain (\\%) & $r$ & Z500 (m) & T850 (K) & MSLP (hPa) \\\\\\midrule\n" + "\n".join(rows)
       + "\n\\bottomrule\\end{tabular}\\label{tab:s4}\\end{table}\n")
-(ROOT / "manuscript/si_tables.tex").write_text(t1 + "\n" + t2 + "\n" + t3 + "\n" + t4)
+# ── Table S5: WRF process diagnosis ──
+dg = json.load(open(R / "wrf_diag/wrf_diagnosis.json")); rows = []
+names = {"P075_ctl": "Control", "P075d_delta": "$+\\delta$", "P075d_null01": "Best random change"}
+for c, lab in names.items():
+    for r in dg[c]:
+        if r["time"][:13] in ("2021-07-13_12", "2021-07-14_06", "2021-07-14_12", "2021-07-14_18", "2021-07-15_00"):
+            rr = "--" if r["rain6h"] is None else f"{r['rain6h']:.1f}"
+            rows.append(f"{lab if r['time'].startswith('2021-07-13') else ''} & {r['time'][5:13].replace('_', ' ')} UTC & {rr} & "
+                        f"{r['tcwv']:.1f} & {r['vimfc']:.1f} & {r['wspd850']:.1f} & {r['mslp_min']:.1f} & "
+                        f"{r['z500_lat']:.1f}$^\\circ$N {r['z500_lon']:.1f}$^\\circ$E \\\\")
+t5 = ("\\begin{table}[h]\\centering\\small\n\\caption{\\textbf{WRF process diagnosis}, 0.75 days ahead, averaged over 49--51.5$^\\circ$N, "
+      "4.5--8$^\\circ$E: 6-h rain ending at the time shown, column water vapour (TCWV), moisture-flux convergence integrated from the "
+      "surface to 500~hPa (VIMFC, mm per 6~h), 850-hPa wind speed, minimum sea-level pressure over 45--55$^\\circ$N, 0--15$^\\circ$E and "
+      "the position of the 500-hPa cut-off low centre.}\n\\begin{tabular}{llrrrrrl}\\toprule\nRun & Time & Rain (mm) & TCWV (mm) & VIMFC & "
+      "Wind 850 (m s$^{-1}$) & MSLP min (hPa) & 500-hPa low \\\\\\midrule\n" + "\n".join(rows)
+      + "\n\\bottomrule\\end{tabular}\\label{tab:s5}\\end{table}\n")
+(ROOT / "manuscript/si_tables.tex").write_text(t1 + "\n" + t2 + "\n" + t3 + "\n" + t4 + "\n" + t5)
 print("wrote si_tables.tex")

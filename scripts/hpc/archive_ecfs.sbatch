@@ -19,10 +19,8 @@ arch() {   # name, base dir, paths...
   [ "$a" = "$b" ] && echo "   OK $name $a bytes" || { echo "   SIZE MISMATCH $name $a vs $b"; exit 1; }
   tar -tf $T/$name.tar > $T/$name.list; ecp -o $T/$name.list $EC/$name.list; rm -f $T/$name.tar
 }
-arch graphcast_runs        $W runs
-arch wrf_cases             $W wrf/cases wrf/soil_ref
-arch wrf_wps               $W wrf/wps
-arch lisflood_runs         $W flood
+# done in job 36669500: graphcast_runs, wrf_cases, wrf_wps (ECFS max file size 128 GiB -> flood runs one tar each)
+for r in $(ls $W/flood); do arch lisflood_$r $W flood/$r; done
 arch lisflood_inputs       /ec/res4/scratch/lux0804/ai_rerun_2026/lisflood_graphcast_6h_corrected inputs
 arch era5_requests_logs    $W $(cd $W && ls -d era5/*.req era5/*/*.req logs 2>/dev/null)
 arch fri_pilot             $W fri

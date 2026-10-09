@@ -23,9 +23,10 @@ robustness, hydrostatic balance and specificity, and inserted into WRF 4.5.2.
 | `results/wrf_cases/` | WRF basin rain per case (`rain_summary.json`, `rain_025.nc`) |
 | `results/flood/` | simulated discharge at the gauges (`station_Q.csv`) |
 | `results/*.csv` | ECMWF basin rain, ERA5 6-h test, null tests, flood and ensemble statistics |
-| `manuscript/figures/` | figures of the paper |
 
 The large optimised initial-state increments (`increment.nc`, approximately 500 MB per file) are not included in this repository or its automatic GitHub-to-Zenodo archive. They require a separate data deposit.
+
+Publication figures are omitted from the current GitHub source tree. The plotting scripts remain available so figures can be reproduced locally. Previously published archives are unchanged.
 
 ## Data not included
 ERA5, its ensemble spread and ECMWF operational forecasts (ECMWF MARS / Copernicus CDS), RADKLIM (DWD open data),

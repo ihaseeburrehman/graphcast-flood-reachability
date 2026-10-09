@@ -2,3 +2,15 @@ results/runs/*/increment.nc
 __pycache__/
 *.pyc
 .DS_Store
+
+# Keep publication artwork local; publish code and derived numerical data only.
+*.pdf
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+*.webp
+*.tif
+*.tiff
+*.eps

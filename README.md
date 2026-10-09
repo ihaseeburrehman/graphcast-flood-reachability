@@ -1,6 +1,6 @@
-# Small initial-state changes let an AI weather model reach the rainfall of Europe's 2021 floods
+# Sensitive initial-state directions let an AI weather model reach Europe's 2021 flood rainfall
 
-Code and derived data for Rehman & Teferle (manuscript submitted to *npj Climate and Atmospheric Science*).
+Code and selected derived data accompanying the manuscript by Rehman & Teferle.
 
 GraphCast (0.25°) is made differentiable in JAX and its initial state is optimised in a 4D-Var framework
 (background error = ERA5 ensemble spread, 250-km Gaussian B^1/2) to fit gauge-adjusted radar rainfall for the
@@ -22,7 +22,7 @@ robustness, hydrostatic balance and specificity, and inserted into WRF 4.5.2.
 | `results/*.csv` | ECMWF basin rain, ERA5 6-h test, null tests, flood and ensemble statistics |
 | `manuscript/figures/` | figures of the paper |
 
-The optimised initial-state increments (`increment.nc`, ~500 MB) are in the Zenodo archive only.
+The large optimised initial-state increments (`increment.nc`, approximately 500 MB per file) are not included in this repository or its automatic GitHub-to-Zenodo archive. They require a separate data deposit.
 
 ## Data not included
 ERA5, its ensemble spread and ECMWF operational forecasts (ECMWF MARS / Copernicus CDS), RADKLIM (DWD open data),

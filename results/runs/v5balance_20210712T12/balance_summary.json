@@ -39,5 +39,7 @@
     "msl": 0.5773279000805803
    }
   }
- }
+ },
+ "dphi_ratio_opt_to_balanced": 0.08,
+ "dphi_ratio_source": "log gc_chain_36541654.log (2-decimal value printed by the run)"
 }

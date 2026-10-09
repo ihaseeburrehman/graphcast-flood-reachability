@@ -22,7 +22,7 @@ RUNS, R, FIG = F.RUNS, F.R, F.FIG
 leads = [("20210713T12", "0.75 d"), ("20210712T12", "1.75 d"), ("20210711T12", "2.75 d")]
 fields = [("specific_humidity", 850, 1e3, "Δq 850 hPa (g kg$^{-1}$)", 1.5), ("temperature", 850, 1, "ΔT 850 hPa (K)", 0.4),
           ("geopotential", 500, 1 / 9.80665, "ΔZ 500 hPa (m)", 0.4)]
-fig, axs = plt.subplots(3, 3, figsize=(7.2, 6.4), constrained_layout=True)
+fig, axs = plt.subplots(3, 3, figsize=(F.W2, 165 * F.MM), constrained_layout=True)
 for i, (d, lab) in enumerate(leads):
     inc = xr.open_dataset(RUNS / f"v5lead_{d}/increment.nc").isel(time=-1)
     lon = inc.lon.values; inc = inc.assign_coords(lon=np.where(lon > 180, lon - 360, lon)).sortby("lon")
@@ -32,12 +32,13 @@ for i, (d, lab) in enumerate(leads):
                            shading="auto", rasterized=True)
         ax.add_patch(plt.Rectangle((4.5, 48.5), 3.0, 2.5, fill=False, ec="k", lw=1))   # Alzette storm region
         ax.set_aspect(1 / np.cos(np.deg2rad(50))); ax.set_xlim(-45, 35); ax.set_ylim(25, 72)
-        if i == 0:
-            ax.set_title(name, fontsize=8)
+        F.panel(ax, "abcdefghi"[3 * i + j], f"{name.split(' (')[0]}, {lab.replace(' d', ' days')}", x=-0.04)
         if j == 0:
-            ax.set_ylabel(f"{lab}\nlatitude (°N)")
+            ax.set_ylabel("Latitude (°N)")
         if i == 2:
-            ax.set_xlabel("longitude (°E)"); fig.colorbar(pc, ax=axs[:, j], orientation="horizontal", shrink=0.8, pad=0.02)
+            ax.set_xlabel("Longitude (°E)")
+            cb = fig.colorbar(pc, ax=axs[:, j], orientation="horizontal", shrink=0.8, pad=0.02)
+            cb.set_label(name); cb.ax.tick_params(labelsize=6)
 F.save(fig, "figS1_increment")
 
 # ── Table S1 ──
@@ -69,14 +70,14 @@ t2 = ("\\begin{table}[h]\\centering\\small\n\\caption{\\textbf{GraphCast and the
       "correlation between GraphCast started from ERA5 plus each of the 50 ECMWF initial perturbations and the same ECMWF "
       "member, and between each perturbation's projection on the optimised change and that member's ECMWF rain; one-sided "
       "permutation $p$ in brackets (10\\,000 joint member shuffles). Storm Boris and the Valencia floods (2024) use the same "
-      "method with IMERG rainfall.}\n\\begin{tabular}{llccc}\\toprule\nTest & Lead (d) & July 2021 & Boris & Valencia \\\\\\midrule\n"
+      "method with IMERG rainfall (for Boris at 10--12 September with $r = 6$~mm); lead times are relative to each event's window.}\n\\begin{tabular}{llccc}\\toprule\nTest & Lead (d) & July 2021 & Boris & Valencia \\\\\\midrule\n"
       + "\n".join(rows) + "\n\\bottomrule\\end{tabular}\\label{tab:s2}\\end{table}\n")
 
 # ── Table S3 ──
 m = pd.read_csv(ROOT / "results/figures/metrics_flood_gauges_v5.csv")
 m["forcing"] = m.forcing.map({"control": "GraphCast", "v5 optimised": "Optimised"}).fillna("Radar")
 rows = []
-for r in m[~(m.lead > 3.0)].sort_values(["forcing", "lead", "gauge"]).itertuples():
+for r in m[~(m.lead > 3.0)].sort_values(["forcing", "lead", "gauge"]).itertuples():  # flood: Table S3
     L = "--" if np.isnan(r.lead) else f"{r.lead:.2f}"
     rows.append(f"{r.forcing} & {L} & {r.gauge} & {r.nse:.2f} [{r.nse_lo:.2f}, {r.nse_hi:.2f}] & {r.kge:.2f} & "
                 f"{r.peak_m3s:.0f} & {r.pde_pct:.0f} \\\\")
@@ -94,10 +95,10 @@ for d, L in [("20210713T12", "0.75"), ("20210712T12", "1.75"), ("20210711T12", "
                               f"{x['rmse']['z500']:.1f} & {x['rmse']['t850']:.2f} & {x['rmse']['msl']:.2f} \\\\")
 t4 = ("\\begin{table}[h]\\centering\\small\n\\caption{\\textbf{Hydrostatic balance and large-scale error} (Alzette optimisations). "
       "Balanced $\\Delta\\phi$: geopotential change recomputed from the temperature, humidity and sea-level-pressure changes; the "
-      "optimised geopotential change is 5--8\\% of the balanced one. RMSE against ERA5 at the target times over 40--60$^\\circ$N, "
+      "optimised geopotential change is 5--8\\% of the balanced one (norm ratio 0.05, 0.08, 0.08). RMSE against ERA5 at the target times over 40--60$^\\circ$N, "
       "10$^\\circ$W--20$^\\circ$E (not used in the optimisation). At 2.75 days the changes fitted to the 19 other storms give Z500 "
       "13.2--18.6~m (median 14.2; 18 below the control), T850 0.96--1.14~K and MSLP 0.73--1.07~hPa.}\n\\begin{tabular}{llrrrrr}\\toprule\nLead (d) & Initial state & "
       "Rain (\\%) & $r$ & Z500 (m) & T850 (K) & MSLP (hPa) \\\\\\midrule\n" + "\n".join(rows)
       + "\n\\bottomrule\\end{tabular}\\label{tab:s4}\\end{table}\n")
-(ROOT / "manuscript/si_tables.tex").write_text(t1 + "\n" + t2 + "\n" + t4 + "\n" + t3)
+(ROOT / "manuscript/si_tables.tex").write_text(t1 + "\n" + t2 + "\n" + t3 + "\n" + t4)
 print("wrote si_tables.tex")
